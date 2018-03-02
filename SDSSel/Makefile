@@ -7,6 +7,6 @@ else
 endif
 
 sdssel: SDSSel.cpp 
-	g++ -fopenmp -std=gnu++0x $(OPTFLAG) -Wall SDSSel.cpp -o sdssel
+	g++ -std=gnu++0x $(OPTFLAG) -Wall SDSSel.cpp -o sdssel
 clean:
 	rm -f sdssel
