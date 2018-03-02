@@ -1,0 +1,61 @@
+SAMPLE INPUT:
+6 4 6 4 13
+1 4
+1 5
+4 5
+2 3
+2 6
+5 6
+7 8 0.5
+8 9 0.5
+7 9 0.5
+9 10 0.25
+7 1
+7 2
+7 6
+8 1
+8 5
+8 6
+9 2
+9 3
+9 6
+10 1
+10 2
+10 3
+10 6
+
+===========================
+SAMPLE INPUT WITH COMMENT
+
+#this input is the same as Figure 1 in the paper
+#the viewers are labeled 1~|V|, channels are labeled |V|+1 to |V|+C in the following
+
+# the viewer nodes 1,2,3,4,5,6 correspond to node a,b,c,d,e,g
+# and channel nodes 7,8,9,10 correspond to node 1,2,3,4 on figure 1
+
+6 4 5 4 13 #|V| |C| |E| |D| |P|
+
+1 4 # |E| lines for social layer edges
+1 5
+4 5
+2 3
+2 6
+
+7 8 0.5 # |D| lines for channel edges, with nodes and weight
+8 9 0.5
+7 9 0.5
+9 10 0.25
+
+7 1 # |P| lines for social-channel edges
+7 2
+7 6
+8 1
+8 5
+8 6
+9 2
+9 3
+9 6
+10 1
+10 2
+10 3
+10 6
