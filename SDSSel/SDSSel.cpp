@@ -180,10 +180,18 @@ std::pair<std::vector<int>, std::vector<int>> get_h2(int cur) {
 
   // channels
   if ((int)r1.size() < P) return MP(r1, r2);
-  std::vector<int> cnt(n + 1);
-  // count the number of followers each channel has
-  REP(i, v + 1, v + c) for (auto j : e[i]) if (j.F <= v && dis2[j.F]) cnt[i]++;
-  REP(i, v + 1, v + c) if (cnt[i] >= P && !del[i]) r2.PB(i);
+
+  for (int i = v + 1; i <= v + c; i++) {
+    int cnt = 0;
+    for (auto j : e[i]) {
+      if (j.F <= v && dis2[j.F]) {
+         cnt++;
+      }
+    }
+    if (cnt >= P && !del[i]) {
+      r2.PB(i);
+    }
+  }
   return MP(r1, r2);
 }
 //傳channel進去，找出他們的preference users
