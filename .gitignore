@@ -1,1 +1,6 @@
 data/*
+*baseline
+*sdssel
+*test_cuda_queue
+*.o
+*.swp
