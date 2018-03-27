@@ -91,7 +91,7 @@ std::vector<std::vector<double>> ediv;
 std::vector<std::pair<int, int>> deg;
 std::vector<int> dis;
 std::vector<int> sharedkapx;
-int sharedkapxobj;
+double sharedkapxobj;
 std::vector<int> sharedfapx;
 int sharedvb;
 /**
@@ -308,7 +308,7 @@ void preprocessing() {
 void sdssel(std::vector<int> &active_nodes,
             std::vector<std::vector<int>> &h2v_group,
             std::vector<std::vector<int>> &h2c_group) {
-#pragma omp parallel for schedule(dynamic) num_threads(Cr)
+#pragma omp parallel for schedule(dynamic) num_threads(Cr) shared(sharedkapxobj, sharedvb)
   for (int i = 0; i < active_nodes.size(); i++) {
     int Vs = active_nodes[i];
     std::vector<int> h2v = h2v_group[i];
@@ -355,9 +355,11 @@ void sdssel(std::vector<int> &active_nodes,
     }
 
 #pragma omp critical
+    {
     if (maxh2cobj >= sharedkapxobj) {
       sharedkapxobj = maxh2cobj;
       sharedvb = maxvbest;
+    }
     }
   }
 
